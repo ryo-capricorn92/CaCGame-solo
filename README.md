@@ -17,8 +17,8 @@
   - [ ] choose between 0 and 3 (5?) patterns to be used
   - [ ] patterns should be layered by largest on bottom, smallest on top
   - [ ] each pattern should get it's own random color
-- [ ] create a sprite sheet with different patterns
-- [ ] use `filter: hue-rotate` and random number to get random colors
+  - [ ] create a sprite sheet with different patterns
+  - [ ] use `filter: hue-rotate` and random number to get random colors
 
 #### Possible Goals ####
 

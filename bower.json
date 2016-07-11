@@ -1,0 +1,17 @@
+{
+  "name": "create-a-canine",
+  "version": "0.1.0",
+  "authors": ["Ryo Wheatley"],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib"
+  ],
+  "dependencies": {
+    "angular": "~1.3.16",
+    "angular-route": "~1.3.16",
+    "angular-mocks": "~1.3.16"
+  }
+}
