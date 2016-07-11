@@ -5,7 +5,7 @@ var app = express();
 
 require('./router.js')(app, express);
 
-app.use(favicon(__dirname + '/public/imgs/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 var port = process.env.PORT || 8000;
 
