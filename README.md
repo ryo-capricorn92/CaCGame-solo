@@ -13,6 +13,7 @@
 
 ## Goals ##
 - [ ] built in AngularJS
+- [ ] create token backend (does nothing to start with)
 - [ ] create a button to generate a random dog
   - [ ] choose between 0 and 3 (5?) patterns to be used
   - [ ] patterns should be layered by largest on bottom, smallest on top
