@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "bower": "~1.7.9",
-    "express": "^4.4.5"
+    "express": "^4.4.5",
+    "serve-favicon": "^2.3.0"
   }
 }
