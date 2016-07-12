@@ -1,7 +1,7 @@
 angular.module('cac', [])
 
 .controller('dogCtrl', function ($scope, Current, Saved) {
-  $scope.nameEdit = false;
+  $scope.msgs = Saved.msgs;
 
   $scope.containerStyle = {
     'height': '' + Current.height + 'px',
@@ -42,6 +42,11 @@ angular.module('cac', [])
 
   $scope.saveList = function() {
     Saved.saveList();
+  }
+
+  $scope.loadList = function() {
+    Saved.loadList();
+    $scope.dogs = Saved.serveDogs();
   }
 })
 
@@ -127,11 +132,13 @@ angular.module('cac', [])
   var dogs = [];
   var index = 0;
   var nameEdit = false;
+  var msgs = [];
 
   var saveDog = function(dog) {
     var name = 'Saved dog ' + (index+1);
     dogs.push({dog, index, name, nameEdit});
     index++;
+    msgs.length = 0;
   }
 
   var serveDogs = function() {
@@ -145,6 +152,10 @@ angular.module('cac', [])
     return result;
   }
 
+  var serveMsgs = function() {
+    return msgs;
+  }
+
   var deleteDog = function(index) {
     dogs[index].dog = null;
   }
@@ -154,10 +165,25 @@ angular.module('cac', [])
   }
 
   var saveList = function() {
-    if ($window.localStorage.getItem('create-a-canine-list')) {
-      dogs = JSON.parse($window.localStorage.getItem('create-a-canine-list')).list;
+    $window.localStorage.setItem('create-a-canine-list', JSON.stringify(dogs));
+  }
+
+  var loadList = function() {
+    var list = JSON.parse($window.localStorage.getItem('create-a-canine-list'));
+    if (list) {
+      dogs = list.slice();
+    } else {
+      msgs.push("You don't have a list saved");
     }
   }
 
-  return { saveDog, serveDogs, deleteDog, clearList, saveList };
+  return {
+    saveDog,
+    serveDogs,
+    deleteDog,
+    clearList,
+    saveList,
+    loadList,
+    msgs
+  };
 });

@@ -29,6 +29,7 @@
               <button ng-show="dogs.length" ng-click="saveList()">Save List</button>
               <button ng-show="dogs.length" ng-click="clearList()">Clear List</button>
             </li>
+            <li ng-repeat="msg in msgs">{{ msg }}</li>
           </ul>
         </div>
 

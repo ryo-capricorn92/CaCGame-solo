@@ -30,9 +30,9 @@
 - [X] add view button to list
 - [X] add delete button to remove dog from list
 - [ ] use localStorage to keep data persistent
-  - [ ] create save list button
-  - [ ] create load list button
-  - [ ] create clear list button
+  - [X] create save list button
+  - [X] create load list button
+  - [X] create clear list button
 
 - [ ] add more designs
 
