@@ -1,3 +1,38 @@
 body {
-  
+  background-color: #8C5E58;
+  color: #19323C;
+}
+
+.container {
+  background-color: #F3F7F0;
+  margin-left: 50px;
+  margin-top: 30px;
+  padding: 50px;
+  border-top-left-radius: 50px
+}
+
+.layer {
+  position: absolute;
+}
+
+#dogImage {
+  position: relative;
+}
+
+#dogList {
+  position: relative;
+  display: inline-block;
+}
+
+#dogList ul {
+
+}
+
+#dogList li {
+  list-style: none;
+}
+
+.dogbuttons {
+  position: absolute;
+  top: 600px;
 }

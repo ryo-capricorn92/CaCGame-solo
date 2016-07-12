@@ -6,17 +6,32 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <h1>Testing . . .</h1>
+    <h1>Create-a-Canine</h1>
 
-    <div id="currentDog" ng-controller="currentCtrl">
-      <div id="dogImage">
-        <img />
+    <div class="container" ng-controller="currentCtrl" ng-style="{{ containerStyle }}">
+
+      <div id="dog">
+        <div id="dogImage">
+          <img src="imgs/layers/outline.png" class="layer">
+          <img ng-repeat="layer in dog" ng-src="{{ layer.image }}" ng-style="{{ layer.style }}" class="layer">
+        </div>
+        <div class="dogbuttons">
+          <button ng-click="newDog()">Create new dog</button>
+          <button ng-click="saveDog()">Save Dog</button>
+        </div>
+
+        <div id="dogList">
+          <ul>
+            <li></li>
+          </ul>
+        </div>
       </div>
-    </div>
+
+   </div>
 
     <script src="lib/angular/angular.js"></script>
 
     <!-- <script src="/app/**.js"></script> -->
-    <script src="app/index.js"></script>
+    <script src="/app/currentDog.js"></script>
   </body>
 </html>
