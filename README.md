@@ -29,7 +29,7 @@
 - [X] clicking on dog's name allows editing
 - [X] add view button to list
 - [X] add delete button to remove dog from list
-- [ ] use localStorage to keep data persistent
+- [X] use localStorage to keep data persistent
   - [X] create save list button
   - [X] create load list button
   - [X] create clear list button

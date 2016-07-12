@@ -1,6 +1,10 @@
-angular.module('cac', [])
+angular.module('cac', ['auth0', 'angular-storage', 'angular-jwt', 'ngRoute'])
 
-.controller('dogCtrl', function ($scope, Current, Saved) {
+.controller('dogCtrl', function ($scope, auth, Current, Saved) {
+  $scope.login = function(){
+    auth.signin();
+  }
+
   $scope.msgs = Saved.msgs;
 
   $scope.containerStyle = {
@@ -186,4 +190,13 @@ angular.module('cac', [])
     loadList,
     msgs
   };
-});
+})
+
+.config( function myAppConfig (authProvider) {
+
+  authProvider.init({
+    domain: 'ryo.auth0.com',
+    clientID: 'D7CQR8eg95UROrrVsthL6y8UtqWhWUz7'
+  });
+
+})
