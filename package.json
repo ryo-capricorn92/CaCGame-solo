@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "A lightweight random dog designer",
   "author": "Ryo Wheatley",
-  "main": "index.js",
   "engines": {
     "node": "5.11.1",
     "npm": "3.8.6"
