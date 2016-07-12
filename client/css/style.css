@@ -42,3 +42,11 @@ body {
 .savedDog>span, .savedDog>input, .savedDog>button {
   display: inline-block;
 }
+
+.savedDog>li {
+  padding-top: 5px;
+}
+
+.listButtons {
+  padding-top: 15px;
+}

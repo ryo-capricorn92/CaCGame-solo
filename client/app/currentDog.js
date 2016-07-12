@@ -31,6 +31,18 @@ angular.module('cac', [])
     Saved.deleteDog(dog.index);
     $scope.dogs = Saved.serveDogs();
   }
+
+  $scope.clearList = function() {
+    var sure = confirm('Are you sure you want to clear this list?');
+    if (sure) {
+      Saved.clearList();
+      $scope.dogs = Saved.serveDogs();
+    }
+  }
+
+  $scope.saveList = function() {
+    Saved.saveList();
+  }
 })
 
 .factory('Current', function ($window) {
@@ -137,5 +149,15 @@ angular.module('cac', [])
     dogs[index].dog = null;
   }
 
-  return { saveDog, serveDogs, deleteDog };
+  var clearList = function() {
+    dogs.length = 0;
+  }
+
+  var saveList = function() {
+    if ($window.localStorage.getItem('create-a-canine-list')) {
+      dogs = JSON.parse($window.localStorage.getItem('create-a-canine-list')).list;
+    }
+  }
+
+  return { saveDog, serveDogs, deleteDog, clearList, saveList };
 });

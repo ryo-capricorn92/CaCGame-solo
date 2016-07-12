@@ -17,12 +17,17 @@
         </div>
 
         <div id="dogList">
-          <ul>
-            <li ng-repeat="dog in dogs" class="savedDog">
+          <ul class="savedDog">
+            <li ng-repeat="dog in dogs">
               <button ng-click="showDog(dog.dog)">View</button>
               <button ng-click="deleteDog(dog)">Delete</button>
               <span ng-click="dog.nameEdit = !dog.nameEdit" ng-hide="dog.nameEdit">{{dog.name}}</span>
               <input ng-model="dog.name" ng-show="dog.nameEdit" ui-type="text" ng-blur="dog.nameEdit = !dog.nameEdit" autofocus>
+            </li>
+            <li class="listButtons">
+              <button ng-click="loadList()">Load List</button>
+              <button ng-show="dogs.length" ng-click="saveList()">Save List</button>
+              <button ng-show="dogs.length" ng-click="clearList()">Clear List</button>
             </li>
           </ul>
         </div>
