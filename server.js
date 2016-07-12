@@ -3,7 +3,7 @@ var favicon = require('serve-favicon');
 
 var app = express();
 
-app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/favicon.ico'));
 
 app.get('/', function(req, res) {
   res.render('/client/index');
