@@ -12,14 +12,15 @@
   ---
 
 ## Goals ##
-- [ ] built in AngularJS
-- [ ] create token backend (does nothing to start with)
+- [X] create token backend (does nothing to start with)
+- [ ] build in AngularJS
 - [ ] create a button to generate a random dog
   - [ ] choose between 0 and 3 (5?) patterns to be used
   - [ ] patterns should be layered by largest on bottom, smallest on top
   - [ ] each pattern should get it's own random color
   - [ ] create a sprite sheet with different patterns
   - [ ] use `filter: hue-rotate` and random number to get random colors
+  - [ ] use `filter: brightness` and `filter: saturation` to give the colors full spectrum
 
 #### Possible Goals ####
 
