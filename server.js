@@ -5,8 +5,11 @@ var app = express();
 
 app.use(favicon(__dirname + '/favicon.ico'));
 
+app.set('views', __dirname + '/client');
+app.set('view engine', 'ejs');
+
 app.get('/', function(req, res) {
-  res.render('/client/index');
+  res.render('index');
 });
 
 var port = process.env.PORT || 8000;
