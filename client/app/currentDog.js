@@ -1,9 +1,11 @@
 angular.module('cac', [])
 
-.controller('currentCtrl', function ($scope, Current) {
+.controller('currentCtrl', function ($scope, Dog) {
+  $scope.created = false;
+
   $scope.newDog = function() {
-    $scope.dog = Current.newDog();
-    $scope.dog.forEach(function(layer) {
+    $scope.layers = Dog.newDog();
+    $scope.layers.forEach(function(layer) {
       layer.style = {
         'filter': 'hue-rotate(' + layer.hue + 'deg) saturate(' + layer.saturation + '%) brightness(' + layer.brightness + '%)',
         '-webkit-filter': 'hue-rotate(' + layer.hue + 'deg) saturate(' + layer.saturation + '%) brightness(' + layer.brightness + '%)',
@@ -11,15 +13,21 @@ angular.module('cac', [])
       };
       layer.image = 'imgs/layers/' + layer.imageName + '.png';
     });
-
   }
+
   $scope.containerStyle = {
-    'height': '' + Current.height + 'px',
-    'width': '' + Current.width + 'px'
+    'height': '' + Dog.height + 'px',
+    'width': '' + Dog.width + 'px'
+  }
+
+  $scope.dogs = Dog.serveDogs();
+
+  $scope.saveDogs = function() {
+    Dog.saveDog($scope.layers);
   }
 })
 
-.factory('Current', function ($window) {
+.factory('Dog', function ($window) {
     //////////////////////////////////////
    /// *****STATIC DATA STORAGE***** ////
   //////////////////////////////////////
@@ -91,8 +99,27 @@ angular.module('cac', [])
     return layers;
   }
 
+  var dogs = [];
+  var index = 0;
+
+  var saveDog = function(dog) {
+    dogs.push({dog, index});
+    index++;
+  }
+
+  var serveDogs = function() {
+    var result = [];
+    dogs.forEach(function(value) {
+      if (value.dog) {
+        result.push(value);
+      }
+    })
+
+    return result;
+  }
+
   return {
-    newDog, width, height
+    newDog, saveDog, serveDogs, width, height
   }
 
 });

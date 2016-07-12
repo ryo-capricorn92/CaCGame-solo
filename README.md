@@ -29,5 +29,6 @@
 - [ ] clicking on saved dog shows it in the same window
 - [ ] add delete button to remove dog from list
 - [ ] delete button should only show if the dog is saved
+- [ ] use localStorage to keep data persistent
 
 - [ ] add more designs

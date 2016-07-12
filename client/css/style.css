@@ -25,7 +25,9 @@ body {
 }
 
 #dogList ul {
-
+  position: absolute;
+  left: 650px;
+  width: 400px;
 }
 
 #dogList li {
