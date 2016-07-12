@@ -1,7 +1,9 @@
 {
   "name": "create-a-canine",
   "version": "0.1.0",
-  "authors": ["Ryo Wheatley"],
+  "authors": [
+    "Ryo Wheatley"
+  ],
   "license": "ISC",
   "ignore": [
     "**/.*",
