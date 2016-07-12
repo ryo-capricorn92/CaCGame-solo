@@ -13,16 +13,21 @@
 
 ## Goals ##
 - [X] create token backend (does nothing to start with)
-- [ ] build in AngularJS
-- [ ] create a button to generate a random dog
-  - [ ] choose between 0 and 3 (5?) patterns to be used
-  - [ ] patterns should be layered by largest on bottom, smallest on top
-  - [ ] each pattern should get it's own random color
-  - [ ] create a sprite sheet with different patterns
-  - [ ] use `filter: hue-rotate` and random number to get random colors
-  - [ ] use `filter: brightness` and `filter: saturation` to give the colors full spectrum
+- [X] build in AngularJS
+- [X] create a button to generate a random dog
+  - [X] choose between 0 and 3 (5?) patterns to be used
+  - [X] patterns should be layered by largest on bottom, smallest on top
+  - [X] each pattern should get it's own random color
+  - [X] create a sprite sheet with different patterns
+  - [X] use `filter: hue-rotate` and random number to get random colors
+  - [X] use `filter: brightness` and `filter: saturation` to give the colors full spectrum
 
 #### Possible Goals ####
 
-- [ ] add left and right buttons to scroll through previously generated dogs
+- [ ] add save button
+- [ ] add a list of saved dogs
+- [ ] clicking on saved dog shows it in the same window
 - [ ] add delete button to remove dog from list
+- [ ] delete button should only show if the dog is saved
+
+- [ ] add more designs

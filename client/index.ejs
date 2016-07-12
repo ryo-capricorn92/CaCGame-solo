@@ -15,15 +15,16 @@
           <img src="imgs/layers/outline.png" class="layer">
           <img ng-repeat="layer in dog" ng-src="{{ layer.image }}" ng-style="{{ layer.style }}" class="layer">
         </div>
-        <div class="dogbuttons">
-          <button ng-click="newDog()">Create new dog</button>
-          <button ng-click="saveDog()">Save Dog</button>
-        </div>
 
         <div id="dogList">
           <ul>
             <li></li>
           </ul>
+        </div>
+
+        <div class="dogbuttons">
+          <button ng-click="newDog()">Create new dog</button>
+          <button ng-click="saveDog()">Save Dog</button>
         </div>
       </div>
 
