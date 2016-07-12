@@ -38,3 +38,7 @@ body {
   position: absolute;
   top: 600px;
 }
+
+.savedDog>span, .savedDog>input, .savedDog>button {
+  display: inline-block;
+}

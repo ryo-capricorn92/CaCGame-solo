@@ -1,6 +1,7 @@
 # Create-a-Canine #
 
 ## The Quick Dog Designer ##
+  [create-a-canine.herokuapp.com](https://create-a-canine.herokuapp.com/ "Create-a-Canine")
   Create-a-Canine is a fast, light-weight online dog designer.
 
 ## For all the writer's out there ##
@@ -26,11 +27,13 @@
 - [X] add save button
 - [X] add a list of saved dogs
 - [X] clicking on dog's name allows editing
-- [ ] add view button to list
-- [ ] add delete button to remove dog from list
+- [X] add view button to list
+- [X] add delete button to remove dog from list
 - [ ] use localStorage to keep data persistent
 
 - [ ] add more designs
 
 #### Far out possibilites ####
 - [ ] add ability to toggle layers on saved dogs
+- [ ] add authentication
+- [ ] make colors follow patterns to come with nice schemes

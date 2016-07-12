@@ -8,8 +8,8 @@ angular.module('cac', [])
     'width': '' + Current.width + 'px'
   }
 
-  $scope.newDog = function() {
-    $scope.layers = Current.newDog();
+  $scope.showDog = function(dog) {
+    $scope.layers = dog || Current.newDog();
     $scope.layers.forEach(function(layer) {
       layer.style = {
         'filter': 'hue-rotate(' + layer.hue + 'deg) saturate(' + layer.saturation + '%) brightness(' + layer.brightness + '%)',
@@ -24,6 +24,11 @@ angular.module('cac', [])
 
   $scope.saveDog = function() {
     Saved.saveDog($scope.layers);
+    $scope.dogs = Saved.serveDogs();
+  }
+
+  $scope.deleteDog = function(dog) {
+    Saved.deleteDog(dog.index);
     $scope.dogs = Saved.serveDogs();
   }
 })
@@ -128,5 +133,9 @@ angular.module('cac', [])
     return result;
   }
 
-  return { saveDog, serveDogs };
+  var deleteDog = function(index) {
+    dogs[index].dog = null;
+  }
+
+  return { saveDog, serveDogs, deleteDog };
 });

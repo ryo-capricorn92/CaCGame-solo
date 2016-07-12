@@ -19,14 +19,16 @@
         <div id="dogList">
           <ul>
             <li ng-repeat="dog in dogs" class="savedDog">
+              <button ng-click="showDog(dog.dog)">View</button>
+              <button ng-click="deleteDog(dog)">Delete</button>
               <span ng-click="dog.nameEdit = !dog.nameEdit" ng-hide="dog.nameEdit">{{dog.name}}</span>
-              <input ng-model="dog.name" ng-show="dog.nameEdit" ui-type="text" ng-blur="dog.nameEdit = !dog.nameEdit">
+              <input ng-model="dog.name" ng-show="dog.nameEdit" ui-type="text" ng-blur="dog.nameEdit = !dog.nameEdit" autofocus>
             </li>
           </ul>
         </div>
 
         <div class="dogbuttons">
-          <button ng-click="newDog()">Create new dog</button>
+          <button ng-click="showDog()">Create new dog</button>
           <button ng-click="saveDog()">Save Dog</button>
         </div>
       </div>
