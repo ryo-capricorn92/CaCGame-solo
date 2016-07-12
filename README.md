@@ -23,12 +23,14 @@
   - [X] use `filter: brightness` and `filter: saturation` to give the colors full spectrum
 
 #### Possible Goals ####
-
-- [ ] add save button
-- [ ] add a list of saved dogs
-- [ ] clicking on saved dog shows it in the same window
+- [X] add save button
+- [X] add a list of saved dogs
+- [X] clicking on dog's name allows editing
+- [ ] add view button to list
 - [ ] add delete button to remove dog from list
-- [ ] delete button should only show if the dog is saved
 - [ ] use localStorage to keep data persistent
 
 - [ ] add more designs
+
+#### Far out possibilites ####
+- [ ] add ability to toggle layers on saved dogs

@@ -1,10 +1,15 @@
 angular.module('cac', [])
 
-.controller('currentCtrl', function ($scope, Dog) {
-  $scope.created = false;
+.controller('dogCtrl', function ($scope, Current, Saved) {
+  $scope.nameEdit = false;
+
+  $scope.containerStyle = {
+    'height': '' + Current.height + 'px',
+    'width': '' + Current.width + 'px'
+  }
 
   $scope.newDog = function() {
-    $scope.layers = Dog.newDog();
+    $scope.layers = Current.newDog();
     $scope.layers.forEach(function(layer) {
       layer.style = {
         'filter': 'hue-rotate(' + layer.hue + 'deg) saturate(' + layer.saturation + '%) brightness(' + layer.brightness + '%)',
@@ -15,19 +20,15 @@ angular.module('cac', [])
     });
   }
 
-  $scope.containerStyle = {
-    'height': '' + Dog.height + 'px',
-    'width': '' + Dog.width + 'px'
-  }
+  $scope.dogs = Saved.serveDogs();
 
-  $scope.dogs = Dog.serveDogs();
-
-  $scope.saveDogs = function() {
-    Dog.saveDog($scope.layers);
+  $scope.saveDog = function() {
+    Saved.saveDog($scope.layers);
+    $scope.dogs = Saved.serveDogs();
   }
 })
 
-.factory('Dog', function ($window) {
+.factory('Current', function ($window) {
     //////////////////////////////////////
    /// *****STATIC DATA STORAGE***** ////
   //////////////////////////////////////
@@ -99,11 +100,20 @@ angular.module('cac', [])
     return layers;
   }
 
+  return {
+    newDog, width, height
+  }
+
+})
+
+.factory('Saved', function($window) {
   var dogs = [];
   var index = 0;
+  var nameEdit = false;
 
   var saveDog = function(dog) {
-    dogs.push({dog, index});
+    var name = 'Saved dog ' + (index+1);
+    dogs.push({dog, index, name, nameEdit});
     index++;
   }
 
@@ -118,8 +128,5 @@ angular.module('cac', [])
     return result;
   }
 
-  return {
-    newDog, saveDog, serveDogs, width, height
-  }
-
+  return { saveDog, serveDogs };
 });

@@ -8,17 +8,20 @@
   <body>
     <h1>Create-a-Canine</h1>
 
-    <div class="container" ng-controller="currentCtrl" ng-style="{{ containerStyle }}">
+    <div class="container" ng-controller="dogCtrl" ng-style="{{ containerStyle }}">
 
       <div id="dog">
         <div id="dogImage">
           <img src="imgs/layers/outline.png" class="layer">
-          <img ng-repeat="layer in dog" ng-src="{{ layer.image }}" ng-style="{{ layer.style }}" class="layer">
+          <img ng-repeat="layer in layers" ng-src="{{ layer.image }}" ng-style="{{ layer.style }}" class="layer">
         </div>
 
         <div id="dogList">
           <ul>
-            <li ng-repeat="dog in dogs" class="savedDog">Testing</li>
+            <li ng-repeat="dog in dogs" class="savedDog">
+              <span ng-click="dog.nameEdit = !dog.nameEdit" ng-hide="dog.nameEdit">{{dog.name}}</span>
+              <input ng-model="dog.name" ng-show="dog.nameEdit" ui-type="text" ng-blur="dog.nameEdit = !dog.nameEdit">
+            </li>
           </ul>
         </div>
 
