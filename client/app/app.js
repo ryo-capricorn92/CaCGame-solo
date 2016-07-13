@@ -1,6 +1,6 @@
 angular.module('cac', ['auth0', 'angular-storage', 'angular-jwt', 'ngRoute'])
 
-.controller('dogCtrl', function ($scope, auth, Current, Saved) {
+.controller('dogCtrl', function ($scope, $window, $location, auth, store, Current, Saved) {
     ////////////////////////////////////////
    ////// *****AUTH0 FUNCTIONS***** ///////
   ////////////////////////////////////////
@@ -39,6 +39,21 @@ angular.module('cac', ['auth0', 'angular-storage', 'angular-jwt', 'ngRoute'])
        }
      }, onLoginSuccess, onLoginFailed);
     }
+    // Add auth to $scope object so we can bind to view
+  $scope.auth = auth;
+
+  $scope.signin = function (){
+    auth.signin({popup: true},
+      function(profile, idToken){
+        // Store user profile
+        store.set('profile', profile);
+        $scope.token = idToken;
+        $scope.popupModeProfile = profile;
+      },
+      function(err) {
+        $scope.err = err;
+      });
+  }
 
 
 
@@ -249,11 +264,12 @@ angular.module('cac', ['auth0', 'angular-storage', 'angular-jwt', 'ngRoute'])
     redirectTo: '/'
   });
 
-  authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'store', function($location, profilePromise, idToken, store) {
+  authProvider.on('loginSuccess', ['$location', '$rootScope', 'profilePromise', 'idToken', 'store', function($location, $rootScope, profilePromise, idToken, store) {
     // Successfully log in
     // Access to user profile and token
     profilePromise.then(function(profile){
       // profile
+      $rootScope.redirectModeProfile = profile;
       store.set('profile', profile);
       store.set('token', idToken);
     });

@@ -51,7 +51,8 @@
               <button ng-show="dogs.length" ng-click="clearList()">Clear List</button>
             </li>
             <li>
-              <button ng-click="login()">Log in to save this list to our database</button>
+              <button ng-hide="redirectModeProfile" ng-click="login()">Log in to save this list to our database</button>
+              <span ng-show="redirectModeProfile">You're logged in as {{ redirectModeProfile.name }}</span>
             </li>
             <li ng-repeat="msg in msgs">{{ msg }}</li>
           </ul>
