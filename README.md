@@ -34,7 +34,7 @@
   - [X] create load list button
   - [X] create clear list button
 
-- [ ] add more designs
+- [X] add more designs
 
 #### Far out possibilites ####
 - [ ] add ability to toggle layers on saved dogs

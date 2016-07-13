@@ -134,7 +134,17 @@ angular.module('cac', ['auth0', 'angular-storage', 'angular-jwt', 'ngRoute'])
     '6': 'freckles',
     '7': 'tuxedo',
     '8': 'blanket',
-    '9': 'outline'
+    '9': 'rightfoot',
+    '10': 'leftfoot',
+    '11': 'righttoes',
+    '12': 'stripes',
+    '13': 'buttspeckles',
+    '14': 'speckling',
+    '15': 'stars',
+    '16': 'eyespot',
+    '17': 'funky',
+    '18': 'spotty',
+    '19': 'outline'
   }
 
   //////////////////////////////////////
@@ -157,7 +167,7 @@ angular.module('cac', ['auth0', 'angular-storage', 'angular-jwt', 'ngRoute'])
     }
 
     layers.forEach(function(layer) {
-      layer.z = random(1,8);
+      layer.z = random(1,18);
       layer.imageName = images[layer.z];
       layer.hue = random(0,360);
       if (layer.z === 7 || layer.z === 8) {
@@ -182,7 +192,7 @@ angular.module('cac', ['auth0', 'angular-storage', 'angular-jwt', 'ngRoute'])
 
     layers.push({
       z: 100,
-      imageName: images[9],
+      imageName: images[19],
       hue: 0,
       brightness: 100,
       saturation: 100
