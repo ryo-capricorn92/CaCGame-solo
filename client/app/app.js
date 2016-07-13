@@ -102,11 +102,19 @@ angular.module('cac', ['auth0', 'angular-storage', 'angular-jwt', 'ngRoute'])
   }
 
   $scope.saveList = function() {
-    Saved.saveList();
+    if ($scope.redirectModeProfile) {
+      Saved.saveList($scope.redirectModeProfile.user_id);
+    } else {
+      Saved.saveList('create-a-canine-list');
+    }
   }
 
   $scope.loadList = function() {
-    Saved.loadList();
+    if ($scope.redirectModeProfile) {
+      Saved.loadList($scope.redirectModeProfile.user_id);
+    } else {
+      Saved.loadList('create-a-canine-list');
+    }
     $scope.dogs = Saved.serveDogs();
   }
 })
@@ -225,12 +233,12 @@ angular.module('cac', ['auth0', 'angular-storage', 'angular-jwt', 'ngRoute'])
     dogs.length = 0;
   }
 
-  var saveList = function() {
-    $window.localStorage.setItem('create-a-canine-list', JSON.stringify(dogs));
+  var saveList = function(saveAt) {
+    $window.localStorage.setItem(saveAt, JSON.stringify(dogs));
   }
 
-  var loadList = function() {
-    var list = JSON.parse($window.localStorage.getItem('create-a-canine-list'));
+  var loadList = function(loadFrom) {
+    var list = JSON.parse($window.localStorage.getItem(loadFrom));
     if (list) {
       dogs = list.slice();
     } else {

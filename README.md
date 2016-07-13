@@ -40,6 +40,6 @@
 - [ ] add ability to toggle layers on saved dogs
 - [X] add authentication
   - [X] show name when logged in
-  - [ ] save your list to a personal key in local storage
+  - [X] save your list to a personal key in local storage
 - [ ] change local storage to database
 - [ ] make colors follow patterns to come with nice schemes
